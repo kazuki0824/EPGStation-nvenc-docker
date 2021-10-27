@@ -20,10 +20,10 @@ jobs:
 
       - name: Build :latest
         if: success()
-        run: docker build -t kazuki0824/EPGStation-nvenc:latest .
+        run: docker build -t kazuki0824/epgstation-nvenc:latest .
 
       - name: Deploy :latest
         if: success()
         uses: actions-hub/docker@master
         with:
-          args: push kazuki0824/EPGStation-nvenc:latest
+          args: push kazuki0824/epgstation-nvenc:latest
