@@ -6,13 +6,27 @@
 [![dockeri.co](https://dockeri.co/image/kazuki0824/epgstation-nvenc)](https://hub.docker.com/r/kazuki0824/epgstation-nvenc)
 
 [EPGStation](https://github.com/l3tnun/EPGStation)上でnvencを利用できるようにするDockerイメージ  
-コンテナ実行時にオプション --gpus [all|<count>]を追加してください。
+amd64, arm64で実行可能
 
 ## 構成
-- [node.js](https://nodejs.org/ja/download/releases/): ^16.0.0
+- [Node.js](https://nodejs.org/ja/download/releases/): ^16.0.0
 - [FFmpeg](https://www.ffmpeg.org/download.html): 4.4.1
 - CUDA: 11.4.2
 - [ffnvcodec](https://github.com/FFmpeg/nv-codec-headers)
+
+## Dockerイメージ単体での使用法
+kazuki0824/epgstation-nvencをpullして使用します。
+```sh
+$ docker run --name <名前> kazuki0824/epgstation-nvenc:latest --gpus [all|<count>]
+```
+コンテナ実行時にオプション --gpus を追加してください。Docker 19.03以上が必要です
+
+## Dockerイメージ単体のビルド
+自前でコンテナをビルドするには、epgstation-nvenc/Dockerfileを使用します。
+```sh
+$ cd ~/EPGStation-nvenc-docker
+$ DOCKER_BUILDKIT=1 docker build ./epgstation-nvenc/
+```
 
 ## 参考：Docker Compose
 また、リポジトリの直下のdocker-compose.ymlにはGPUを使用する設定が入っています。
@@ -31,6 +45,6 @@ Mirakurun, MySQLを同時起動する設定になっています.
 
 ## 備考
 x264の代わりにnvencを使用してエンコードを行うための設定が
-config/config.yml.template
+epgstation-nvenc/config/config.yml.template
 に格納されており、  
 イメージの/app/config直下にコピーされています。
