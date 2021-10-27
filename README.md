@@ -12,3 +12,9 @@
 - [FFmpeg](https://www.ffmpeg.org/download.html): 4.4.1  
 - CUDA: 11.4.2  
 - [ffnvcodec](https://github.com/FFmpeg/nv-codec-headers)
+
+## 備考
+x264の代わりにnvencを使用してエンコードを行うための設定が
+config/config.yml.template
+に格納されており、  
+イメージの/app/config直下にコピーされています。
