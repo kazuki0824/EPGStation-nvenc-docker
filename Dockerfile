@@ -1,26 +1,3 @@
-# 前半部詳細については、Dockerfile.debianのコメントを参照。
-
-FROM --platform=$BUILDPLATFORM node:16-buster AS client-builder
-COPY client/package*.json /app/client/
-WORKDIR /app/client
-RUN npm install --no-save --loglevel=info
-COPY . /app/
-RUN npm run build --loglevel=info
-
-
-FROM node:16-buster AS server-builder
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update
-RUN apt-get install -y build-essential python
-WORKDIR /app
-COPY package*.json /app/
-ENV DOCKER="YES"
-RUN npm install --no-save --loglevel=info
-COPY . .
-RUN rm -rf client
-RUN npm run build-server --loglevel=info
-
-
 FROM nvidia/cuda:11.4.2-devel-ubuntu20.04 AS ffmpeg-build
 ENV DEBIAN_FRONTEND=noninteractive
 ENV CCACHE_DIR=/opt/.ccache
@@ -102,8 +79,8 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     apt install -y $RUNTIME && \
     apt purge -y wget gcc g++ make
     
-COPY --from=server-builder /app /app/
-COPY --from=client-builder /app/client /app/client/
+COPY --from=l3tnun/epgstation:master-debian /app /app/
+COPY --from=l3tnun/epgstation:master-debian /app/client /app/client/
 COPY --from=ffmpeg-build /ffmpeg /usr/local/
 RUN chmod 444 /app/src -R
 
@@ -115,4 +92,3 @@ EXPOSE 8888
 WORKDIR /app
 ENTRYPOINT ["npm"]
 CMD ["start"]
-
