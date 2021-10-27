@@ -2,22 +2,23 @@ FROM nvidia/cuda:11.4.2-devel-ubuntu20.04 AS ffmpeg-build
 ENV DEBIAN_FRONTEND=noninteractive
 ENV CCACHE_DIR=/opt/.ccache
 ENV USE_CCACHE=1
-ENV DEV="make gcc git g++ automake curl wget autoconf build-essential libass-dev libfreetype6-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev ccache"
-
-ENV FFMPEG_VERSION=4.2.4
-# https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#virtual-architecture-feature-list
-ENV CUDA_CC="35 37 50 52 53 60 61 62 70 72 75 80 86 87" 
-
+ENV DEV="make gcc git g++ automake curl wget autoconf build-essential libtool libva-dev libvdpau-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev ccache"
 RUN mkdir /opt/.ccache
 RUN rm -f /etc/apt/apt.conf.d/docker-clean; echo 'Binary::apt::APT::Keep-Downloaded-Packages "true";' > /etc/apt/apt.conf.d/keep-cache
+# Prep
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     apt-get update && \
     apt-get -y install $DEV && \
     apt-get update && \
-    apt-get -y install yasm libx264-dev libmp3lame-dev libopus-dev libvpx-dev libaribb24-dev && \
-    apt-get -y install libx265-dev libnuma-dev
+    apt-get -y install yasm libx264-dev libmp3lame-dev libopus-dev libvpx-dev libaribb24-dev libx265-dev libnuma-dev \
+    libass-dev libfreetype6-dev libsdl1.2-dev libvorbis-dev libtheora-dev
 
 SHELL ["/bin/bash", "-c"]
+
+# FFMpeg version
+ENV FFMPEG_VERSION=4.2.4
+# https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#virtual-architecture-feature-list
+ENV CUDA_CC="35 37 50 52 53 60 61 62 70 72 75 80 86 87" 
 
 RUN --mount=type=cache,target=/opt/.ccache \
 #nvenc build
