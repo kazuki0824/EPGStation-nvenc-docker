@@ -16,7 +16,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 SHELL ["/bin/bash", "-c"]
 
 # FFMpeg version
-ENV FFMPEG_VERSION=4.2.4
+ENV FFMPEG_VERSION=4.4.1
 # https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#virtual-architecture-feature-list
 ENV CUDA_CC="35 37 50 52 53 60 61 62 70 72 75 80 86 87" 
 
