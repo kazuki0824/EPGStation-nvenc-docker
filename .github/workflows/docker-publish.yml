@@ -46,8 +46,7 @@ jobs:
         if: success() && github.event_name != 'pull_request'
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: Dockerfile
+          context: ./epgstation-nvenc
           platforms: ${{ matrix.platforms }}
           tags: ${{ secrets.DOCKER_USERNAME }}/epgstation-nvenc:latest
           cache-from: type=local,src=/tmp/.buildx-cache
