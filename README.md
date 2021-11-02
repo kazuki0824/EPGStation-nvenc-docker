@@ -24,6 +24,8 @@ nano mirakurun/conf/channels.yml
 
 #コメントアウトされている restart や user の設定を適宜変更する
 nano docker-compose.yml
+
+docker-compose up 
 ```
 
 ## Dockerイメージ単体での使用法
@@ -33,8 +35,8 @@ docker run --name <名前> kazuki0824/epgstation-nvenc:latest --gpus [all|<count
 ```
 コンテナ実行時にオプション --gpus を追加してください。Docker 19.03以上が必要です
 
-## Dockerイメージ単体のビルド
-自前でコンテナをビルドするには、epgstation-nvenc/Dockerfileを使用します。
+## 参考：Dockerイメージ単体のビルド
+もしも自前でコンテナをビルドしたい場合は、epgstation-nvenc/Dockerfileを使用します。
 ```sh
 curl -sf https://raw.githubusercontent.com/kazuki0824/EPGStation-nvenc-docker/main/single-container.sh | sh -s
 ```

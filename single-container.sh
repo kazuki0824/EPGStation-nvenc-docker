@@ -1,6 +1,6 @@
 #!/bin/sh
 
-git clone git@github.com:kazuki0824/EPGStation-nvenc-docker.git --no-checkout
+git clone https://github.com/kazuki0824/EPGStation-nvenc-docker.git --no-checkout
 
 cd EPGStation-nvenc-docker
 git sparse-checkout init
