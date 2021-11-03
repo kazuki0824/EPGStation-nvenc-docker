@@ -7,4 +7,4 @@ git sparse-checkout init
 git sparse-checkout set epgstation
 git checkout master
 
-DOCKER_BUILDKIT=1 docker build ./epgstation/
+DOCKER_BUILDKIT=1 docker build ./epgstation-nvenc/

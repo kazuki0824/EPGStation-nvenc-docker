@@ -58,6 +58,6 @@ Mirakurun, MySQLを同時起動する設定になっています.
 
 ## 備考
 x264の代わりにnvencを使用してエンコードを行うための設定が
-epgstation/config/config.yml.template
+epgstation-nvenc/config/config.yml.template
 に格納されており、
 イメージの/app/config直下にコピーされています。
