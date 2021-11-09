@@ -8,11 +8,11 @@ git clone https://github.com/l3tnun/docker-mirakurun-epgstation.git
 cd docker-mirakurun-epgstation
 rm -rf ./.gi*
 cp -r ./epgstation $INSTALLDIR/.epgstation -n
+cp ./docker-compose-sample.yml $INSTALLDIR/docker-compose-no-nvenc.yml
 cd ..
 rm -rf docker-mirakurun-epgstation
 
 cd $INSTALLDIR
-#cp docker-compose-sample.yml docker-compose.yml
 cp .epgstation/config/enc.js.template epgstation-nvenc/config/enc.js
 cp epgstation-nvenc/config/config.yml.template epgstation-nvenc/config/config.yml
 cp .epgstation/config/operatorLogConfig.sample.yml epgstation-nvenc/config/operatorLogConfig.yml
