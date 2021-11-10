@@ -56,6 +56,11 @@ Mirakurun, MySQLを同時起動する設定になっています.
 (TODO: [Rust製チューナコントローラ](https://github.com/kazuki0824/b25-kit-rs)をMirakurunコンテナに組み込む)
 
 
+また、以下の手順で全体を最新のイメージに更新できます。
+```sh
+DOCKER_BUILDKIT=1 docker-compose pull
+```
+
 ## 備考
 x264の代わりにnvencを使用してエンコードを行うための設定が
 epgstation-nvenc/config/config.yml.template
