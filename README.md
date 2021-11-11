@@ -17,7 +17,7 @@ amd64, arm64で実行可能
 ## インストール
 ```sh
 curl -sf https://raw.githubusercontent.com/kazuki0824/EPGStation-nvenc-docker/main/setup.sh | sh -s
-cd EPGStation-nvenc-docker
+cd docker-mirakurun-epgstation
 
 #チャンネル設定
 nano mirakurun/conf/channels.yml
@@ -53,9 +53,21 @@ Mirakurun, MySQLを同時起動する設定になっています.
 (TODO: [Rust製チューナコントローラ](https://github.com/kazuki0824/b25-kit-rs)をMirakurunコンテナに組み込む)
 
 
-また、以下の手順で全体を最新のイメージに更新できます。
+## 更新方法
+初期設定のままで利用されている方は下記スクリプトを実行してください
+
 ```sh
-DOCKER_BUILDKIT=1 docker-compose pull
+cd docker-mirakurun-epgstation
+curl -sf https://raw.githubusercontent.com/kazuki0824/EPGStation-nvenc-docker/main/update.sh | sh -s
+```
+設定をカスタマイズされている方は本プロジェクトの差分を確認して手動で適用してから本家をプルしてください
+
+```
+git pull
+docker-compose pull
+# ローカルでイメージをビルドするように設定している時だけ下記が必要
+docker-compose build --pull
+docker-compose up -d
 ```
 
 ## 備考
