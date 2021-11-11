@@ -36,10 +36,7 @@ docker run --name <名前> kazuki0824/epgstation-nvenc:latest --gpus [all|<count
 コンテナ実行時にオプション --gpus を追加してください。Docker 19.03以上が必要です
 
 ## 参考：Dockerイメージ単体のビルド
-もしも自前でコンテナをビルドしたい場合は、epgstation-nvenc/Dockerfileを使用します。
-```sh
-curl -sf https://raw.githubusercontent.com/kazuki0824/EPGStation-nvenc-docker/main/single-container.sh | sh -s
-```
+もしも自前でコンテナをビルドしたい場合は、`docker-compose.yml`のimageの個所をコメントアウトしてbuildの個所のコメントを解除して使用します。
 
 ## 参考：Docker Compose
 また、リポジトリの直下のdocker-compose.ymlにはGPUを使用する設定が入っています。
