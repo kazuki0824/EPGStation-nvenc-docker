@@ -63,6 +63,7 @@ curl -sf https://raw.githubusercontent.com/kazuki0824/EPGStation-nvenc-docker/ma
 設定をカスタマイズされている方は本プロジェクトの差分を確認して手動で適用してから本家をプルしてください
 
 ```
+# 本プロジェクトではなく本家がプルされますこちらも別途差分を参照してください
 git pull
 docker-compose pull
 # ローカルでイメージをビルドするように設定している時だけ下記が必要
