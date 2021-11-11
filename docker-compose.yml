@@ -43,6 +43,9 @@ services:
     epgstation:
         container_name: epg-container
         image: kazuki0824/epgstation-nvenc
+        # build:
+            # context: "./epgstation"
+            # dockerfile: "custom.Dockerfile"
         deploy:
           resources:
             reservations:
