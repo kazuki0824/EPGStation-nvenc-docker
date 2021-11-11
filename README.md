@@ -25,7 +25,7 @@ nano mirakurun/conf/channels.yml
 #コメントアウトされている restart や user の設定を適宜変更する
 nano docker-compose.yml
 
-docker-compose up 
+docker-compose up -d
 ```
 
 ## Dockerイメージ単体での使用法
