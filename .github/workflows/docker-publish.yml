@@ -47,6 +47,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./epgstation-nvenc
+          file: custom.Dockerfile
           platforms: ${{ matrix.platforms }}
           tags: ${{ secrets.DOCKER_USERNAME }}/epgstation-nvenc:latest
           cache-from: type=local,src=/tmp/.buildx-cache
