@@ -17,7 +17,7 @@ amd64, arm64で実行可能
 ## インストール
 ```sh
 curl -sf https://raw.githubusercontent.com/kazuki0824/EPGStation-nvenc-docker/main/setup.sh | sh -s
-cd EPGStation-nvenc-docker
+cd docker-mirakurun-epgstation
 
 #チャンネル設定
 nano mirakurun/conf/channels.yml
@@ -25,7 +25,7 @@ nano mirakurun/conf/channels.yml
 #コメントアウトされている restart や user の設定を適宜変更する
 nano docker-compose.yml
 
-docker-compose up 
+docker-compose up -d
 ```
 
 ## Dockerイメージ単体での使用法
@@ -36,10 +36,7 @@ docker run --name <名前> kazuki0824/epgstation-nvenc:latest --gpus [all|<count
 コンテナ実行時にオプション --gpus を追加してください。Docker 19.03以上が必要です
 
 ## 参考：Dockerイメージ単体のビルド
-もしも自前でコンテナをビルドしたい場合は、epgstation-nvenc/Dockerfileを使用します。
-```sh
-curl -sf https://raw.githubusercontent.com/kazuki0824/EPGStation-nvenc-docker/main/single-container.sh | sh -s
-```
+もしも自前でコンテナをビルドしたい場合は、`docker-compose.yml`のimageの個所をコメントアウトしてbuildの個所のコメントを解除して使用します。
 
 ## 参考：Docker Compose
 また、リポジトリの直下のdocker-compose.ymlにはGPUを使用する設定が入っています。
@@ -56,9 +53,22 @@ Mirakurun, MySQLを同時起動する設定になっています.
 (TODO: [Rust製チューナコントローラ](https://github.com/kazuki0824/b25-kit-rs)をMirakurunコンテナに組み込む)
 
 
-また、以下の手順で全体を最新のイメージに更新できます。
+## 更新方法
+初期設定のままで利用されている方は下記スクリプトを実行してください
+
 ```sh
-DOCKER_BUILDKIT=1 docker-compose pull
+cd docker-mirakurun-epgstation
+curl -sf https://raw.githubusercontent.com/kazuki0824/EPGStation-nvenc-docker/main/update.sh | sh -s
+```
+設定をカスタマイズされている方は本プロジェクトの差分を確認して手動で適用してから本家をプルしてください
+
+```
+# 本プロジェクトではなく本家がプルされますこちらも別途差分を参照してください
+git pull
+docker-compose pull
+# ローカルでイメージをビルドするように設定している時だけ下記が必要
+docker-compose build --pull
+docker-compose up -d
 ```
 
 ## 備考
