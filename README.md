@@ -8,9 +8,9 @@
 [EPGStation](https://github.com/l3tnun/EPGStation)上でnvencを利用できるようにするDockerイメージ  
 
 # サポートする環境
-x64, またはARMv8を搭載したデバイス(ARMv8は未テストです)
-Docker 19.03またはDocker for Windows on WSL2
-適切なNVIDIAデバイスドライバ
+- x64, またはARMv8を搭載したデバイス(ARMv8は未テストです)
+- 適切なNVIDIA公式ドライバがインストールされたOS
+- Docker 19.03以上，またはDocker for Windows(事前に[WSL2の設定](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)が必要です)
 
 
 ## 構成
