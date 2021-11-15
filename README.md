@@ -6,7 +6,12 @@
 [![dockeri.co](https://dockeri.co/image/kazuki0824/epgstation-nvenc)](https://hub.docker.com/r/kazuki0824/epgstation-nvenc)
 
 [EPGStation](https://github.com/l3tnun/EPGStation)上でnvencを利用できるようにするDockerイメージ  
-amd64, arm64で実行可能
+
+# サポートする環境
+x64, またはARMv8を搭載したデバイス(ARMv8は未テストです)
+Docker 19.03またはDocker for Windows on WSL2
+適切なNVIDIAデバイスドライバ
+
 
 ## 構成
 - [Node.js](https://nodejs.org/ja/download/releases/): ^16.0.0
@@ -76,3 +81,6 @@ x264の代わりにnvencを使用してエンコードを行うための設定�
 epgstation-nvenc/config/config.yml.template
 に格納されており、
 イメージの/app/config直下にコピーされています。
+
+## Contributors
+[Yui Maruyama](https://github.com/5ym)
