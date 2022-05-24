@@ -53,10 +53,10 @@ services:
               - driver: nvidia
                 capabilities: [gpu,video,utility]
         volumes:
-            - ./epgstation-nvenc/config:/app/config
-            - ./epgstation-nvenc/data:/app/data
-            - ./epgstation-nvenc/thumbnail:/app/thumbnail
-            - ./epgstation-nvenc/logs:/app/logs
+            - ./epgstation/config:/app/config
+            - ./epgstation/data:/app/data
+            - ./epgstation/thumbnail:/app/thumbnail
+            - ./epgstation/logs:/app/logs
             - ./recorded:/app/recorded
         environment:
             TZ: "Asia/Tokyo"
