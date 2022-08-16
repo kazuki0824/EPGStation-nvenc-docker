@@ -1,0 +1,71 @@
+- name: PX_MLT1
+  types:
+    - GR
+    - BS
+    - CS
+  command: recpt1 --device /dev/pxmlt8video0 <channel> - -
+  decoder: arib-b25-stream-test
+  isDisabled: false
+
+- name: PX_MLT2
+  types:
+    - GR
+    - BS
+    - CS
+  command: recpt1 --device /dev/pxmlt8video1 <channel> - -
+  decoder: arib-b25-stream-test
+  isDisabled: false
+  
+- name: PX_MLT3
+  types:
+    - GR
+    - BS
+    - CS
+  command: recpt1 --device /dev/pxmlt8video2 <channel> - -
+  decoder: arib-b25-stream-test
+  isDisabled: false
+
+- name: PX_MLT4
+  types:
+    - GR
+    - BS
+    - CS
+  command: recpt1 --device /dev/pxmlt8video3 <channel> - -
+  decoder: arib-b25-stream-test
+  isDisabled: false
+  
+- name: PX_MLT5
+  types:
+    - GR
+    - BS
+    - CS
+  command: recpt1 --device /dev/pxmlt8video4 <channel> - -
+  decoder: arib-b25-stream-test
+  isDisabled: false
+
+- name: PX_MLT6
+  types:
+    - GR
+    - BS
+    - CS
+  command: recpt1 --device /dev/pxmlt8video5 <channel> - -
+  decoder: arib-b25-stream-test
+  isDisabled: false
+  
+- name: PX_MLT7
+  types:
+    - GR
+    - BS
+    - CS
+  command: recpt1 --device /dev/pxmlt8video6 <channel> - -
+  decoder: arib-b25-stream-test
+  isDisabled: false
+
+- name: PX_MLT8
+  types:
+    - GR
+    - BS
+    - CS
+  command: recpt1 --device /dev/pxmlt8video7 <channel> - -
+  decoder: arib-b25-stream-test
+  isDisabled: false

@@ -1,0 +1,27 @@
+- name: NHK総合・東京
+  type: GR
+  channel: '27'
+- name: NHK Eテレ東京
+  type: GR
+  channel: '26'
+- name: 日本テレビ
+  type: GR
+  channel: '25'
+- name: テレビ朝日
+  type: GR
+  channel: '24'
+- name: TBS
+  type: GR
+  channel: '22'
+- name: テレビ東京
+  type: GR
+  channel: '23'
+- name: フジテレビジョン
+  type: GR
+  channel: '21'
+- name: TOKYO MX
+  type: GR
+  channel: '20'
+- name: テレビ埼玉
+  type: GR
+  channel: '32'
