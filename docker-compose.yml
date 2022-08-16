@@ -14,15 +14,8 @@ services:
         environment:
             TZ: "Asia/Tokyo"
         devices:
-            - /dev/pxmlt8video0:/dev/pxmlt8video0
-            - /dev/pxmlt8video1:/dev/pxmlt8video1
-            - /dev/pxmlt8video2:/dev/pxmlt8video2
-            - /dev/pxmlt8video3:/dev/pxmlt8video3
-            - /dev/pxmlt8video4:/dev/pxmlt8video4
-            - /dev/pxmlt8video5:/dev/pxmlt8video5
-            - /dev/pxmlt8video6:/dev/pxmlt8video6
-            - /dev/pxmlt8video7:/dev/pxmlt8video7
             - /dev/bus:/dev/bus
+            - /dev/dvb:/dev/dvb
         restart: always
         logging:
             driver: json-file

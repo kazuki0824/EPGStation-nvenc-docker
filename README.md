@@ -1,9 +1,3 @@
-# このリポジトリは？
-
-https://github.com/kazuki0824/EPGStation-nvenc-dockerを自分の環境に合わせてカスタマイズしたもの。
-
-大きなバージョンアップなどがあったら、頑張って追随する。
-
 # EPGStation-nvenc-docker
 ![ci workflow](https://github.com/kazuki0824/EPGStation-nvenc-docker/actions/workflows/docker-publish.yml/badge.svg)
 ![Docker Stars](https://img.shields.io/docker/stars/kazuki0824/epgstation-nvenc)
@@ -26,6 +20,12 @@ https://github.com/kazuki0824/EPGStation-nvenc-dockerを自分の環境に合わ
 - [ffnvcodec](https://github.com/FFmpeg/nv-codec-headers)
 
 ## インストール
+```sh
+curl -sf https://raw.githubusercontent.com/kazuki0824/EPGStation-nvenc-docker/main/setup.sh | sh -s
+cd docker-mirakurun-epgstation
+
+#チャンネル設定
+nano mirakurun/conf/channels.yml
 
 #コメントアウトされている restart や user の設定を適宜変更する
 nano docker-compose.yml
